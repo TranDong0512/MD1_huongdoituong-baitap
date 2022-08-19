@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="longs">
+<input type="text" id="width">
+<button onclick="clickon()">tính</button>
+<canvas id="canva" style="width: 500px; height: 600px"></canvas>
+</body>
+<script>
+    let Rectangle = function (longs, width) {
+        this.longs = longs;
+        this.width = width;
+
+        this.getArea = function () {
+            return longs * width;
+        }
+
+        this.getPerimeter = function () {
+            return (longs + width) * 2;
+        }
+    }
+
+    function clickon() {
+        let storage1 = +document.getElementById("longs").value;
+        let storage2 = +document.getElementById("width").value;
+
+        let rectangle = new Rectangle(storage1,storage2);
+        let area = rectangle.getArea();
+        let preimeter = rectangle.getPerimeter();
+        console.log("dien tích " + area + " chu vi " + preimeter);
+
+        let canvas = document.getElementById("canva");
+        let ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#fa4b2a"
+        ctx.fillRect(10,10,storage1,storage2)
+
+    }
+</script>
+</html>

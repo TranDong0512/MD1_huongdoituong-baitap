@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <input type="text" id="input" placeholder="nhập độ C">
+<button onclick="clickon()">Tính</button>
+</body>
+<script>
+    let Temperature = function(Celsius){
+        this.Celsius = Celsius;
+
+        this.getFahrenheit =function (){
+            return Celsius * 1.8 + 32
+        }
+        this.getKenvin = function (){
+            return Celsius + 273.15
+        }
+    }
+    function clickon() {
+        let storage = +document.getElementById("input").value
+        if ( storage > -273){
+            let temperature = new Temperature(storage)
+            var fahrenheit = temperature.getFahrenheit()
+            var kenvin = temperature.getKenvin()
+        }else {
+            return
+        }
+        console.log("độ f bằng " + fahrenheit + " độ kenvin bằng " + kenvin)
+    }
+</script>
+</html>
